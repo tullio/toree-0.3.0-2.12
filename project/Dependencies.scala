@@ -53,7 +53,8 @@ object Dependencies {
   val scalaLibrary = Def.setting{ "org.scala-lang" % "scala-library" % scalaVersion.value } // BSD 3-clause
   val scalaReflect = Def.setting{ "org.scala-lang" % "scala-reflect" % scalaVersion.value } // BSD 3-clause
 
-  val scalaTest = "org.scalatest" %% "scalatest" % "2.2.6" // Apache v2
+  //val scalaTest = "org.scalatest" %% "scalatest" % "2.2.6" // Apache v2
+  val scalaTest = "org.scalatest" %% "scalatest" % "3.3.0-SNAP2" // Apache v2
 
   val slf4jApi = "org.slf4j" % "slf4j-api" % "1.7.21" // MIT
 
