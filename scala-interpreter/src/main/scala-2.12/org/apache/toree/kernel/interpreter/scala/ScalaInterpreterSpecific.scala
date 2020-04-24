@@ -248,7 +248,8 @@ trait ScalaInterpreterSpecific extends SettingsProducerLike { this: ScalaInterpr
     require(iMain != null)
 
     try {
-      iMain.eval(variableName) match {
+      //iMain.eval(variableName) match {
+      iMain.interpret(variableName) match {
         case null => None
         case str: String if str.isEmpty => None
         case res => Some(res)
