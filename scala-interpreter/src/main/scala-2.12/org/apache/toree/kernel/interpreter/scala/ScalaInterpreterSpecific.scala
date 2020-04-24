@@ -251,7 +251,7 @@ trait ScalaInterpreterSpecific extends SettingsProducerLike { this: ScalaInterpr
       //iMain.eval(variableName) match {
       iMain.interpret(variableName) match {
         case null => None
-        case str: String if str.isEmpty => None
+        //case str: String if str.isEmpty => None
         case res => Some(res)
       }
     } catch {

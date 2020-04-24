@@ -38,7 +38,8 @@ class Sql extends CellMagic with IncludeKernel {
     val scala = kernel.interpreter("Scala")
     val evaluated = if (scala.nonEmpty && scala.get != null) {
       val scalaInterpreter = scala.get.asInstanceOf[ScalaInterpreter]
-      scalaInterpreter.iMain.eval("s\"" + code.replace("\n", " ") + "\"").asInstanceOf[String]
+      //scalaInterpreter.iMain.eval("s\"" + code.replace("\n", " ") + "\"").asInstanceOf[String]
+      scalaInterpreter.iMain.interpret("s\"" + code.replace("\n", " ") + "\"").asInstanceOf[String]
     } else {
       code
     }
