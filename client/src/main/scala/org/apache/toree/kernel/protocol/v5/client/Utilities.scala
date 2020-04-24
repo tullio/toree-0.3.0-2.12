@@ -24,7 +24,7 @@ import org.apache.toree.communication.ZMQMessage
 import org.apache.toree.kernel.protocol.v5._
 import org.apache.toree.kernel.protocol.v5.content.ExecuteRequest
 import org.apache.toree.utils.LogLike
-import play.api.data.validation.ValidationError
+//import play.api.data.validation.ValidationError
 import play.api.libs.json.{JsPath, Json, Reads,JsonValidationError}
 
 import scala.concurrent.duration._
