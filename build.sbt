@@ -45,8 +45,8 @@ scalacOptions in ThisBuild ++= Seq(
   "-feature",
   "-Xfatal-warnings",
   "-language:reflectiveCalls",
-  "-target:jvm-1.6",
-  "-Xlint" // Scala 2.11.x only
+//  "-target:jvm-1.6",
+//  "-Xlint" // Scala 2.11.x only
 )
 // Java-based options for compilation (all tasks)
 // NOTE: Providing a blank flag causes failures, only uncomment with options
@@ -58,8 +58,8 @@ javacOptions in ThisBuild ++= Seq(
   "-Xlint:-options",
   "-Xlint:-processing",
   "-Werror",       // Treat warnings as errors
-  "-source", "1.6",
-  "-target", "1.6"
+//  "-source", "1.6",
+//  "-target", "1.6"
 )
 // Options provided to forked JVMs through sbt, based on our .jvmopts file
 javaOptions in ThisBuild ++= Seq(
