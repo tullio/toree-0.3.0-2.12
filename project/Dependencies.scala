@@ -26,7 +26,8 @@ object Dependencies {
   val akkaSlf4j = "com.typesafe.akka" %% "akka-slf4j" % "2.5.27" // Apache v2
   val akkaTestkit = "com.typesafe.akka" %% "akka-testkit" % "2.5.27" // Apache v2
 
-  val clapper = "org.clapper" %% "classutil" % "1.0.12" // BSD 3-clause license, used for detecting plugins
+  //val clapper = "org.clapper" %% "classutil" % "1.0.12" // BSD 3-clause license, used for detecting plugins
+  val clapper = "org.clapper" %% "classutil" % "1.5.1" // BSD 3-clause license, used for detecting plugins
 
   val commonsExec = "org.apache.commons" % "commons-exec" % "1.3" // Apache v2
 
