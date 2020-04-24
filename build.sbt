@@ -223,3 +223,31 @@ assemblyShadeRules in assembly := Seq(
 test in assembly := {}
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 aggregate in assembly := false
+
+assemblyMergeStrategy in assembly := {
+  case PathList("javax", "servlet", xs @ _*)         => MergeStrategy.first
+  case PathList("javax", "xml", xs @ _*)         => MergeStrategy.first
+  case PathList("com", "fasterxml", xs @ _*)         => MergeStrategy.first
+  case PathList("org", "slf4j", xs @ _*)         => MergeStrategy.first
+  case PathList("org", "apache", xs @ _*) => MergeStrategy.last
+  case PathList("com", "google", xs @ _*) => MergeStrategy.last
+  case PathList(ps @ _*) if ps.last endsWith ".properties" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".xml" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".types" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".class" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith "epoll_x86_64.so" => MergeStrategy.first
+  case "UnusedStubClass.class"  => MergeStrategy.first
+  case "jetty-dir.css"                            => MergeStrategy.first
+
+  case "application.conf"                            => MergeStrategy.concat
+  case "unwanted.txt"                                => MergeStrategy.discard
+  // Failed
+  case "org.apache.hadoop.fs.FileSystem"                                => MergeStrategy.discard
+    // Great!
+  case PathList(p @ _*) if p.last == "org.apache.hadoop.fs.FileSystem" => MergeStrategy.discard
+  case x =>
+    val oldStrategy = (assemblyMergeStrategy in assembly).value
+    oldStrategy(x)
+}
+
+
