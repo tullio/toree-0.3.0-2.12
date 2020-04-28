@@ -171,10 +171,19 @@ case class KernelMessageRelay(
         // TODO: Handle error case for mapTo and non-present onFailure
         //        signatureInsertFuture.mapTo[KernelMessage] onSuccess {
         signatureInsertFuture.mapTo[KernelMessage] onComplete {
+          /** 0.4.0 
           case _ =>
-            //            outgoingRelay(message)
-                        outgoingRelay(_)
+                        outgoingRelay(message)
             finishedProcessing()
+            **/
+          /** 0.3.0 **/
+          case Success(message) =>
+            outgoingRelay(message)
+                    finishedProcessing()
+          case Failure(f) =>
+            println(f)
+            finishedProcessing()
+          /**  **/
         }
       } else {
         logger.debug(s"Relaying outgoing message " +
